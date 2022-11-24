@@ -1,0 +1,71 @@
+const body = document.querySelector('body')
+const container = document.querySelector('.container')
+const colorText = document.querySelector('.color-text')
+const values = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+]
+
+// random color function
+function getGradient() {
+  let color = '#'
+  for (let i = 0; i < 6; i++) {
+    const randomNumber = Math.trunc(Math.random() * values.length)
+    color += values[randomNumber]
+  }
+
+  return color
+}
+
+// set color to body
+function setGradient() {
+  const color1 = getGradient()
+  const color2 = getGradient()
+  const randomDeg = Math.trunc(Math.random() * 360)
+  const bgColor = `linear-gradient(
+    ${randomDeg}deg,
+    ${color1},
+    ${color2}
+  )`
+  body.style.background = bgColor
+  colorText.textContent = bgColor
+}
+
+setGradient()
+
+container.addEventListener('click', setGradient)file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=openssl
+file:C:/Program Files/Git/etc/gitconfig	http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager-core
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/akow4230/gradient.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
